@@ -1,0 +1,11 @@
+services:
+  postgresql:
+    image: postgres:latest
+    container_name: VUTTR-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: vuttr-database-pwd-123
+      POSTGRES_DB: db-vuttr
