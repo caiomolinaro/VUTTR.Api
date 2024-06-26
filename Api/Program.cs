@@ -1,4 +1,4 @@
-using Api.DependencyInjection;
+using Api.Shared.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +19,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseStatusCodePages();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

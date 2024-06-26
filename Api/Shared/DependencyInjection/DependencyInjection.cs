@@ -1,7 +1,7 @@
-﻿using Api.Infrastructure;
-using Api.Repositories;
+﻿using Api.Repositories;
+using Api.Shared.Infrastructure;
 
-namespace Api.DependencyInjection;
+namespace Api.Shared.DependencyInjection;
 
 [ExcludeFromCodeCoverage]
 public static class DependencyInjection
