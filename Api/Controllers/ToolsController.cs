@@ -1,13 +1,11 @@
 ﻿using Api.Models;
 using Api.Models.DTOs;
 using Api.Repositories;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [Route("tools")]
     [ApiController]
-    [ExcludeFromCodeCoverage]
     public class ToolsController : ControllerBase
     {
         private readonly IMapper _mapper;
@@ -28,21 +26,20 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ToolsDTO>>> GetTools(CancellationToken cancellationToken)
+        public async Task<ActionResult<IEnumerable<ToolsDTO>>> GetTools(CancellationToken cancellationToken, [FromQuery] string? tag = null)
         {
-            var tools = await _toolsData.GetAllAsync(cancellationToken);
-
-            if (tools is null)
+            if (tag is null)
             {
-                return NotFound("There is no tool registered");
+                var tools = await _toolsData.GetAllAsync(cancellationToken);
+
+                if (tools is null)
+                {
+                    return NotFound("There is no tool registered");
+                }
+
+                return Ok(tools);
             }
 
-            return Ok(tools);
-        }
-
-        [HttpGet("getByTag")]
-        public async Task<ActionResult<IEnumerable<ToolsDTO>>> GetToolsByTag([FromQuery] string tag, CancellationToken cancellationToken)
-        {
             var toolsByTag = await _toolsData.GetByTagAsync(tag, cancellationToken);
 
             if (toolsByTag is null)

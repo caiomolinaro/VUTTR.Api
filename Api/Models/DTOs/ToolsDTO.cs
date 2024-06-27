@@ -1,6 +1,5 @@
 ﻿namespace Api.Models.DTOs;
 
-[ExcludeFromCodeCoverage]
 public class ToolsDTO
 {
     public string? Title { get; set; }

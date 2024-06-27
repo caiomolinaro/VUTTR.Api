@@ -4,7 +4,6 @@ using Api.Shared.Infrastructure;
 
 namespace Api.Repositories;
 
-[ExcludeFromCodeCoverage]
 public class ToolsData(AppDbContext context, IMapper mapper) : IToolsData
 {
     public async Task<ToolsDTO> CreateAsync(ToolsEntity entity, CancellationToken cancellationToken)

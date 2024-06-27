@@ -1,6 +1,5 @@
 ﻿namespace Api.Models;
 
-[ExcludeFromCodeCoverage]
 public class ToolsEntity
 {
     public Guid Id { get; set; } = Guid.NewGuid();
