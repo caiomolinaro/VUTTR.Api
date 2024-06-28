@@ -7,6 +7,9 @@ This project is my solution to the [BossaBox backend challenge](https://bossabox
 - C#
 - ASP.NET Core Web API
 - Entity Framework Core
+- AutoMapper
+- FluentValidation
+- Newtonsoft.Json
 - Swagger
 - PostgreSQL
 - Docker

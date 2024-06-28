@@ -19,6 +19,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+builder.Services.AddDependencyInjectionValidator(app);
+
 app.UseStatusCodePages();
 app.UseHttpsRedirection();
 

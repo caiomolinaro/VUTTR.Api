@@ -18,8 +18,15 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(ToolsDTO tools, CancellationToken cancellationToken)
+        public async Task<ActionResult> Create(ToolsDTO tools, IValidator<ToolsDTO> validator, CancellationToken cancellationToken)
         {
+            var validationResult = await validator.ValidateAsync(tools, cancellationToken);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+
             var toolEntity = _mapper.Map<ToolsEntity>(tools);
             var toolCreated = await _toolsData.CreateAsync(toolEntity, cancellationToken);
             return Created("Crated tool", toolCreated);
