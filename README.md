@@ -24,18 +24,18 @@ This project is my solution to the [BossaBox backend challenge](https://bossabox
 
 #### Create a tool
 
-```http
+```
   POST /tools
 ```
 
 #### Get all tools or a tool with a common tag
 
-```http
+```
   GET /tools?tag=example
 ```
 
 #### Delete a tool by id
 
-```http
+```
   DELETE /tools/{id:guid}
 ```
